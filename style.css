@@ -69,6 +69,7 @@ body {
   font-size: x-large;
   background-color: #d2d3de;
   padding: 20px;
+  outline: none;
   text-align: center;
   cursor: pointer;
   border: none;

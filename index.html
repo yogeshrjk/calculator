@@ -14,30 +14,31 @@
         <div id="display">
 
         </div>
-        <hr style="color:rgba(128, 128, 128, 0.5);background-color:rgba(128, 128, 128, 0.5)">
+        <!-- <hr style="color:rgba(128, 128, 128, 0.5);background-color:rgba(128, 128, 128, 0.5)"> -->
         <form name="forms">
-            <div id="input">
+            <div id="input" style="padding: 10px;">
                 <input type="text" name="ans" placeholder="0" disabled>
             </div>
             <div id="key">
                 <table class="table">
                     <tr>
-                        <td><input type="button" value="C"
+                        <td colspan="2"><input type="button" value="CLEAR"
                                 onclick="forms.ans.value =''; document.getElementById('display').innerText = forms.ans.value =''; "
-                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 15px 0 0 0;"></td>
-                        <td><input type="button" value="⌫" onclick="forms.ans.value = forms.ans.value.slice(0,-1)"
-                                style=" color: rgba(255, 0, 0, 0.5); font-size:large;"></td>
-                        <td><input type="button" value="%" onclick="forms.ans.value += '%'"
-                                style=" color: rgba(255, 0, 0, 0.5); font-size: large;"></td>
+                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 25px 0 0 0; font-size:medium; width: 100%;">
+                        </td>
+                        <td><input type="button" value="DEL" onclick="forms.ans.value = forms.ans.value.slice(0,-1)"
+                                style=" color: rgba(255, 0, 0, 0.5); font-size:medium;"></td>
+                        <!-- <td><input type="button" value="%" onclick="forms.ans.value +='%'"
+                                style=" color: rgba(255, 0, 0, 0.5); font-size: large;"></td> -->
                         <td><input type="button" value="÷" onclick="forms.ans.value += '/'"
-                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 0 15px 0 0;"></td>
+                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 0 25px 0 0;"></td>
                     </tr>
                     <tr>
                         <td> <input type="button" value="7" onclick="forms.ans.value += '7'"></td>
                         <td><input type="button" value="8" onclick="forms.ans.value += '8'"></td>
                         <td><input type="button" value="9" onclick="forms.ans.value += '9'"></td>
                         <td><input type="button" value="x" onclick="forms.ans.value += '*'"
-                                style=" color: rgba(255, 0, 0, 0.5);"></td>
+                                style=" color: rgba(255, 0, 0, 0.5); font-size:medium;"></td>
                     </tr>
                     <tr>
                         <td><input type="button" value="4" onclick="forms.ans.value += '4'"></td>
@@ -55,12 +56,12 @@
                     </tr>
                     <tr>
                         <td><input type="button" value="." onclick="forms.ans.value += '.'"
-                                style="border-radius: 0px 0px 0px 15px; font-size: xx-large;"></td>
+                                style="border-radius: 0px 0px 0px 25px; font-size: xx-large;"></td>
                         <td><input type="button" value="0" onclick="forms.ans.value += '0'"></td>
                         <!-- <td><input type="button" value="^" onclick="forms.ans.value += '^'"
                                 style=" color: rgba(255, 0, 0, 0.5);"></td> -->
                         <td colspan="2"> <input type="button" value="=" onclick="result()"
-                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 0px 0px 15px 0px; width: 100%;">
+                                style=" color: rgba(255, 0, 0, 0.5); border-radius: 0px 0px 25px 0px; width: 100%;">
                         </td>
                     </tr>
                 </table>
@@ -70,11 +71,14 @@
     <script>
 
         function result() {
-            if (value = '=') {
+            try {
                 document.getElementById('display').innerText = forms.ans.value = eval(forms.ans.value).toLocaleString("en");
-
+            }
+            catch (err) {
+                alert("invalid");
             }
         }
+
     </script>
 
 </body>
